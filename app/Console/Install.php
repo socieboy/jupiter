@@ -4,6 +4,7 @@ namespace Socieboy\Jupiter\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Composer;
 use Symfony\Component\Process\Process;
 
 class Install extends Command
@@ -23,6 +24,21 @@ class Install extends Command
     protected $description = 'Install Jupiter CMS scaffolding into the application';
 
     /**
+     * @var Composer
+     */
+    protected $composer;
+
+    /**
+     * Install constructor.
+     * @param Composer $composer
+     */
+    public function __construct(Composer $composer)
+    {
+        parent::__construct();
+        $this->composer = $composer;
+    }
+
+    /**
      * Execute the console command.
      *
      * @return mixed
@@ -37,7 +53,6 @@ class Install extends Command
         $this->installRequests();
         $this->installRoutes();
         $this->installModels();
-        $this->createSeeds();
         $this->installMigrations();
         $this->installJupiterConfig();
         $this->installAssets();
@@ -51,9 +66,7 @@ class Install extends Command
                 ['Installing Jupiter Features', '<info>✔</info>'],
             ]
         );
-
-//        $composer = $this->findComposer();
-//        (new Process($composer . ' dump-autoload', base_path()))->setTimeout(null)->run();
+        $this->composer->dumpAutoloads();
 
         if ($this->option('force') || $this->confirm('Would you like to run your database migrations?', 'yes')) {
             (new Process('php artisan migrate', base_path()))->setTimeout(null)->run();
@@ -228,13 +241,6 @@ class Install extends Command
             JUPITER_PATH.'/resources/stubs/public/images/avatar.png',
             base_path('public/images/avatar.png')
         );
-    }
-
-    protected function createSeeds()
-    {
-        (new Process('php artisan make:seeder UserTableSeeder', base_path()))->setTimeout(null)->run();
-        (new Process('php artisan make:seeder RoleAndPermissionTableSeeder', base_path()))->setTimeout(null)->run();
-        (new Process('php artisan make:seeder PermissionTableSeeder', base_path()))->setTimeout(null)->run();
     }
 
     /**
