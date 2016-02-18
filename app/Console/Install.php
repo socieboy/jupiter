@@ -218,6 +218,9 @@ class Install extends Command
      */
     protected function installPublicResources()
     {
+        if (! is_dir('public/images')) {
+            mkdir(base_path('public/images'));
+        }
         copy(
             JUPITER_PATH.'/resources/stubs/public/images/avatar.png',
             base_path('public/images/avatar.png')
