@@ -45,19 +45,6 @@ elixir(function(mix) {
     mix.less('app.less', 'public/libs/css/');
     mix.browserify('app.js', 'public/libs/js/')
 
-    mix.copy('package.json', 'jupiter/resources/stubs/package.json');
-    mix.copy('bower.json', 'jupiter/resources/stubs/bower.json');
-    mix.copy('gulpfile.js', 'jupiter/resources/stubs/gulpfile.js');
-    mix.copy('app/Providers/AuthServiceProvider.php', 'jupiter/resources/stubs/app/Providers/AuthServiceProvider.php');
-    mix.copy('app/Providers/RouteServiceProvider.php', 'jupiter/resources/stubs/app/Providers/RouteServiceProvider.php');
-    mix.copy('app/Exceptions/Handler.php', 'jupiter/resources/stubs/app/Exceptions/Handler.php');
-    mix.copy('app/Http/Requests/Users', 'jupiter/resources/stubs/app/Http/Requests/Users');
-    mix.copy('app/User.php', 'jupiter/resources/stubs/app/User.php');
-    mix.copy('database/migrations', 'jupiter/resources/stubs/database/migrations');
-    mix.copy('database/seeds', 'jupiter/resources/stubs/database/seeds');
-    mix.copy('resources/assets', 'jupiter/resources/assets');
-    mix.copy('app/Models', 'jupiter/resources/stubs/app/Models');
-
     // Merge all CSS files in one file.
     mix.styles([
         'bootstrap.css',

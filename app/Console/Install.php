@@ -31,7 +31,7 @@ class Install extends Command
     {
         $this->installNpmPackageConfig();
         $this->installBowerPackageConfig();
-        //$this->installGulpFile();
+        $this->installGulpFile();
         $this->installServiceProviders();
         $this->installExeptionHandler();
         $this->installRequests();
