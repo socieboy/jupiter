@@ -1,0 +1,27 @@
+{
+    "name": "socieboy/jupiter",
+    "description": "Socieboy Jupiter it's a quick CMS base for Laravel",
+    "keywords": [
+        "laravel",
+        "cms",
+        "jupiter",
+        "socieboy"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Francisco Sepulveda",
+            "email": "socieboy@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "intervention/image": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Socieboy\\Jupiter\\": "app/"
+        }
+    },
+    "minimum-stability": "dev"
+}

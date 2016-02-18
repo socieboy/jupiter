@@ -1,0 +1,44 @@
+@import "components/variables";
+@import "components/login";
+@import "components/inputs";
+@import "components/buttons";
+@import "components/sidebar";
+@import "components/table";
+@import "components/modal";
+@import "components/error";
+@import "components/avatar";
+
+
+body{
+  background-color: #222d32 !important;
+  a{
+    cursor: pointer;
+  }
+}
+
+.content-wrapper{
+  height: 100% !important;
+  background: #EFEFEF;
+}
+
+.content{
+
+  @media (max-width: @screen-sm-min) {
+    padding-top: 60px;
+  }
+
+  padding: 30px;
+
+  h1{
+    float:left;
+    color: #222d32;
+    font-size: 22px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-weight: bold;
+
+    small{
+      margin-left: 29px;
+    }
+  }
+}
