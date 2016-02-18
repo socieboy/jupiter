@@ -37,6 +37,7 @@ class Install extends Command
         $this->installRequests();
         $this->installRoutes();
         $this->installModels();
+        $this->createSeeds();
         $this->installMigrations();
         $this->installJupiterConfig();
         $this->installAssets();
@@ -56,9 +57,6 @@ class Install extends Command
 
         if ($this->option('force') || $this->confirm('Would you like to run your database migrations?', 'yes')) {
             (new Process('php artisan migrate', base_path()))->setTimeout(null)->run();
-            (new Process('php artisan make:seeder UserTableSeeder', base_path()))->setTimeout(null)->run();
-            (new Process('php artisan make:seeder RoleAndPermissionTableSeeder', base_path()))->setTimeout(null)->run();
-            (new Process('php artisan make:seeder PermissionTableSeeder', base_path()))->setTimeout(null)->run();
             (new Process('php artisan db:seed', base_path()))->setTimeout(null)->run();
         }
         if ($this->option('force') || $this->confirm('Would you like to install your NPM dependencies?', 'yes')) {
@@ -230,6 +228,13 @@ class Install extends Command
             JUPITER_PATH.'/resources/stubs/public/images/avatar.png',
             base_path('public/images/avatar.png')
         );
+    }
+
+    protected function createSeeds()
+    {
+        (new Process('php artisan make:seeder UserTableSeeder', base_path()))->setTimeout(null)->run();
+        (new Process('php artisan make:seeder RoleAndPermissionTableSeeder', base_path()))->setTimeout(null)->run();
+        (new Process('php artisan make:seeder PermissionTableSeeder', base_path()))->setTimeout(null)->run();
     }
 
     /**
