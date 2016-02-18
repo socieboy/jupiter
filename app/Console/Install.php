@@ -31,7 +31,7 @@ class Install extends Command
     {
         $this->installNpmPackageConfig();
         $this->installBowerPackageConfig();
-        //$this->installGulpFile();
+        $this->installGulpFile();
         $this->installServiceProviders();
         $this->installExeptionHandler();
         $this->installRequests();
@@ -51,9 +51,11 @@ class Install extends Command
             ]
         );
 
+//        $composer = $this->findComposer();
+//        (new Process($composer . ' dump-autoload', base_path()))->setTimeout(null)->run();
+
         if ($this->option('force') || $this->confirm('Would you like to run your database migrations?', 'yes')) {
             (new Process('php artisan migrate', base_path()))->setTimeout(null)->run();
-            $this->execute('composer dump-autoload');
             (new Process('php artisan db:seed', base_path()))->setTimeout(null)->run();
         }
         if ($this->option('force') || $this->confirm('Would you like to install your NPM dependencies?', 'yes')) {
