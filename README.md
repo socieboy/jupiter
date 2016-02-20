@@ -48,6 +48,8 @@ You can change those values on the database\seeds\UserTableSeeder class of the s
  
 ### Roles
 
+- dashboard
+  - This role is assigned to all users that can access the dashboard.
 - super_admin
   - This role is assigned to the Super Admin and it won't be displayed on the roles table of the system.
 - manage_roles
@@ -55,32 +57,29 @@ You can change those values on the database\seeds\UserTableSeeder class of the s
 - manage_users
   - This role is assigned to the Administrator user to manage the CRUD of Users.
 
-
 ### Permissions
+The dashboard permisison is assigned to the dashboard role.
+- dashboard
 
+Those permisison are assigned to the super_admin.
 - read_permissions
 - create_permissions
 - update_permissions
 - delete_permissions
 
-  - Those permisison are assigned to the super_admin .
-  
+Those permission are assigned to the role manage_roles and super_admin.
 - read_roles
 - create_roles
 - update_roles
 - delete_roles
 
-  - Those permission are assigned to the role manage_roles and super_admin.
-
+Those permission are assigned to the role manage_users and super_admin.
 - read_users
 - create_users
 - update_users
 - delete_users
 
-  - Those permission are assigned to the role manage_users and super_admin.
-
 If you want to create your own permissions there is a PermissionTableSeeder class on the database\seeds\ folder.
-
 Define a permission to upload a photo.
 ```
  Permission::create([
@@ -107,3 +106,9 @@ On the views you can use the blade directives
 @endcan
 ```
 
+### Dashboard
+
+Visit the route /admin and you will be redirected to the login to get access to the dashboard.
+```
+http://localhost/admin
+```
