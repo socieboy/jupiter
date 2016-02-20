@@ -2,10 +2,11 @@
 
 namespace Socieboy\Jupiter\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\User;
+use App\Http\Controllers\Controller;
+use Socieboy\Jupiter\Http\Controllers\JupiterController;
 
-class UsersController extends Controller
+class UsersController extends JupiterController
 {
 
     /**

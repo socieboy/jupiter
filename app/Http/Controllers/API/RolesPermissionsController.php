@@ -3,10 +3,10 @@
 namespace Socieboy\Jupiter\Http\Controllers\API;
 
 use App\Models\Role;
-use App\Http\Controllers\Controller;
+use Socieboy\Jupiter\Http\Controllers\JupiterController;
 use Socieboy\Jupiter\Http\Requests\AssignPermissionToRoleRequest;
 
-class RolesPermissionsController extends Controller
+class RolesPermissionsController extends JupiterController
 {
 
     /**

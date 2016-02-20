@@ -3,13 +3,13 @@
 namespace Socieboy\Jupiter\Http\Controllers\API;
 
 use App\User;
-use App\Http\Controllers\Controller;
 use Socieboy\Jupiter\Contracts\Users\NewUser;
 use App\Http\Requests\Users\UpdateUserRequest;
 use App\Http\Requests\Users\CreateUserRequest;
 use Socieboy\Jupiter\Contracts\Users\UpdateUser;
+use Socieboy\Jupiter\Http\Controllers\JupiterController;
 
-class UsersController extends Controller
+class UsersController extends JupiterController
 {
 
     /**

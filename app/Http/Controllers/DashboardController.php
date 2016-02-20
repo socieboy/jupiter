@@ -2,9 +2,9 @@
 
 namespace Socieboy\Jupiter\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Socieboy\Jupiter\Http\Controllers\JupiterController;
 
-class DashboardController extends Controller
+class DashboardController extends JupiterController
 {
     /**
      * Show the Dashboard home page.

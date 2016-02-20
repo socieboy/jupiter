@@ -18,18 +18,18 @@ class UserTableSeeder extends Seeder
          * Create a super administrator
          */
         User::create([
-            'name' => 'Super Administrator',
-            'email' => 'suadmin@suadmin.com',
-            'password' => 'suadmin'
+            'name'      => 'Super Administrator',
+            'email'     => 'suadmin@suadmin.com',
+            'password'  => 'suadmin'
         ]);
 
         /**
          * Create administrator
          */
         User::create([
-            'name' => 'Administrator',
-            'email' => 'admin@admin.com',
-            'password' => 'admin'
+            'name'      => 'Administrator',
+            'email'     => 'admin@admin.com',
+            'password'  => 'admin'
         ]);
     }
 }

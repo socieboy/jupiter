@@ -2,11 +2,11 @@
 
 namespace Socieboy\Jupiter\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Permission;
 use App\Models\Role;
+use App\Models\Permission;
+use Socieboy\Jupiter\Http\Controllers\JupiterController;
 
-class RolesController extends Controller
+class RolesController extends JupiterController
 {
 
     /**

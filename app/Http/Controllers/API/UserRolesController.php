@@ -2,10 +2,10 @@
 namespace Socieboy\Jupiter\Http\Controllers\API;
 
 use App\User;
-use App\Http\Controllers\Controller;
+use Socieboy\Jupiter\Http\Controllers\JupiterController;
 use Socieboy\Jupiter\Http\Requests\AssignRuleToUserRequest;
 
-class UserRolesController extends Controller
+class UserRolesController extends JupiterController
 {
     /**
      * Update Role with the permissions in the request.
