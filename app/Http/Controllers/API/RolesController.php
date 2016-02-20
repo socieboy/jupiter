@@ -8,7 +8,6 @@ use Socieboy\Jupiter\Http\Controllers\JupiterController;
 
 class RolesController extends JupiterController
 {
-
     /**
      * Retrieve Roles.
      * @return mixed
@@ -67,5 +66,4 @@ class RolesController extends JupiterController
     {
         return snake_case(ucwords(strtolower($name)));
     }
-
 }

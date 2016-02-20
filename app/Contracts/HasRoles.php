@@ -1,4 +1,5 @@
 <?php
+
 namespace Socieboy\Jupiter\Contracts;
 
 use App\Models\Role;
@@ -14,6 +15,7 @@ trait HasRoles
     {
         return $this->belongsToMany(Role::class)->with('permissions');
     }
+
     /**
      * Helper to give Role to User.
      * @mix Role | Array $role
@@ -28,9 +30,9 @@ trait HasRoles
         return $this->roles()->sync($roles);
 
     }
+
     /**
      * Determine if the user has the given role.
-     *
      * @param  mixed $role
      * @return boolean
      */
@@ -41,9 +43,9 @@ trait HasRoles
         }
         return !! $role->intersect($this->roles)->count();
     }
+
     /**
      * Determine if the user may perform the given permission.
-     *
      * @param  Permission $permission
      * @return boolean
      */

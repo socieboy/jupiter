@@ -1,4 +1,5 @@
 <?php
+
 namespace Socieboy\Jupiter\Contracts\Users;
 
 use Illuminate\Http\Request;

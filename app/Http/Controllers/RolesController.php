@@ -8,7 +8,6 @@ use Socieboy\Jupiter\Http\Controllers\JupiterController;
 
 class RolesController extends JupiterController
 {
-
     /**
      * Display Role Mangement page.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

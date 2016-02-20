@@ -7,7 +7,6 @@ use Socieboy\Jupiter\Http\Controllers\JupiterController;
 
 class PermissionsController extends JupiterController
 {
-
     /**
      * Retrieve permissions.
      * @return mixed

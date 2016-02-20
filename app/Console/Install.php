@@ -11,14 +11,12 @@ class Install extends Command
 {
     /**
      * The name and signature of the console command.
-     *
      * @var string
      */
     protected $signature = 'jupiter:install {--force}';
 
     /**
      * The console command description.
-     *
      * @var string
      */
     protected $description = 'Install Jupiter CMS scaffolding into the application';
@@ -40,7 +38,6 @@ class Install extends Command
 
     /**
      * Execute the console command.
-     *
      * @return mixed
      */
     public function handle()
@@ -67,7 +64,6 @@ class Install extends Command
             ]
         );
         $this->composer->dumpAutoloads();
-
         if ($this->option('force') || $this->confirm('Would you like to run your database migrations?', 'yes')) {
             (new Process('php artisan migrate', base_path()))->setTimeout(null)->run();
             (new Process('php artisan db:seed', base_path()))->setTimeout(null)->run();
@@ -81,13 +77,11 @@ class Install extends Command
         if ($this->option('force') || $this->confirm('Would you like to run Gulp?', 'yes')) {
             (new Process('gulp', base_path()))->setTimeout(null)->run();
         }
-
         $this->displayPostInstallationNotes();
     }
 
     /**
      * Install the "package.json" file for the project.
-     *
      * @return void
      */
     protected function installNpmPackageConfig()
@@ -100,7 +94,6 @@ class Install extends Command
 
     /**
      * Install the "bower.json" file for the project.
-     *
      * @return void
      */
     protected function installBowerPackageConfig()
@@ -113,7 +106,6 @@ class Install extends Command
 
     /**
      * Install the "gulpfile.json" file for the project.
-     *
      * @return void
      */
     protected function installGulpFile()
@@ -126,7 +118,6 @@ class Install extends Command
 
     /**
      * Generate and install the application Jupiter service provider.
-     *
      * @return void
      */
     protected function installServiceProviders()
@@ -143,7 +134,6 @@ class Install extends Command
 
     /**
      * Install the customized Jupiter exceptions.
-     *
      * @return void
      */
     protected function installExeptionHandler()
@@ -156,7 +146,6 @@ class Install extends Command
 
     /**
      * Install the customized Jupiter requests.
-     *
      * @return void
      */
     protected function installRequests()
@@ -169,7 +158,6 @@ class Install extends Command
 
     /**
      * Install the routes for the application.
-     *
      * @return void
      */
     protected function installRoutes()
@@ -182,7 +170,6 @@ class Install extends Command
 
     /**
      * Install the user migration file.
-     *
      * @return void
      */
     protected function installMigrations()
@@ -199,7 +186,6 @@ class Install extends Command
 
     /**
      * Install the jupiter configuration file.
-     *
      * @return void
      */
     protected function installJupiterConfig()
@@ -212,7 +198,6 @@ class Install extends Command
 
     /**
      * Install the default Assets for the application.
-     *
      * @return void
      */
     protected function installAssets()
@@ -229,7 +214,6 @@ class Install extends Command
 
     /**
      * Install the public resources for the application.
-     *
      * @return void
      */
     protected function installPublicResources()
@@ -245,7 +229,6 @@ class Install extends Command
 
     /**
      * Install the Models for the application.
-     *
      * @return void
      */
     protected function installModels()
@@ -262,7 +245,6 @@ class Install extends Command
 
     /**
      * Install the environment variables for the application.
-     *
      * @return void
      */
     protected function installEnvironmentVariables()
@@ -270,13 +252,10 @@ class Install extends Command
         if (! file_exists(base_path('.env'))) {
             return;
         }
-
         $env = file_get_contents(base_path('.env'));
-
         if (str_contains($env, 'MANDRILL_SECRET=')) {
             return;
         }
-
         (new Filesystem)->append(
             base_path('.env'),
             PHP_EOL.'STRIPE_KEY='.PHP_EOL.
@@ -286,7 +265,6 @@ class Install extends Command
 
     /**
      * Install the "Terms Of Service" Markdown file.
-     *
      * @return void
      */
     protected function installTerms()
@@ -298,13 +276,11 @@ class Install extends Command
 
     /**
      * Display the post-installation information to the user.
-     *
      * @return void
      */
     protected function displayPostInstallationNotes()
     {
         $this->comment('Post Installation Notes:');
         $this->line(PHP_EOL.'→ Set <info>MANDRILL_SECRET</info> key of your application.');
-
     }
 }

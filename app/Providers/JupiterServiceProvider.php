@@ -1,4 +1,5 @@
 <?php
+
 namespace Socieboy\Jupiter\Providers;
 
 use Socieboy\Jupiter\Console\Install;
@@ -61,29 +62,10 @@ class JupiterServiceProvider extends ServiceProvider
         if (! defined('JUPITER_PATH')) {
             define('JUPITER_PATH', realpath(__DIR__.'/../../'));
         }
-
-        $this->defineServices();
-
         if ($this->app->runningInConsole()) {
             $this->commands([Install::class]);
         }
-
         include __DIR__ . '/../helpers.php';
-    }
-
-    /**
-     * Bind the Jupiter services into the container.
-     * @return void
-     */
-    protected function defineServices()
-    {
-        $services = [
-        ];
-
-        foreach ($services as $key => $value) {
-            $this->app->bindIf($key, $value);
-        }
-
     }
 
     protected function registerDependencies()
