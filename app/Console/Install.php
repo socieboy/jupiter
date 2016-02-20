@@ -52,9 +52,6 @@ class Install extends Command
             ]
         );
 
-//        $composer = $this->findComposer();
-//        (new Process($composer . ' dump-autoload', base_path()))->setTimeout(null)->run();
-
         if ($this->option('force') || $this->confirm('Would you like to run your database migrations?', 'yes')) {
             (new Process('php artisan migrate', base_path()))->setTimeout(null)->run();
             (new Process('php artisan db:seed', base_path()))->setTimeout(null)->run();

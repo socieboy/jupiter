@@ -46,7 +46,6 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
         if($request->wantsJson()){
-
             if($e instanceof AuthorizationException)
             {
                 return response([

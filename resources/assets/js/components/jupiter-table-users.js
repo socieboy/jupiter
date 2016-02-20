@@ -26,6 +26,12 @@ Vue.component('jupiter-table-users', {
                 this.$set('roles', response.data)
             })
         },
+        deleteUserSuccess: function(response){
+            window.location.href = "/admin/user";
+        },
+        deleteUserFail: function(response){
+            alertify.error('Woops! Something went wrong!')
+        }
     }
 
 })

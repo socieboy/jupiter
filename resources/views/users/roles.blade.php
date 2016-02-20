@@ -24,12 +24,7 @@
                     <div class="modal-body">
 
                         <div class="row permissions">
-
-                            <div class="col-md-12">
-                                <h4 class="text-muted">Select roles from the list below:</h4>
-                                <jupiter-errors :errors.sync="errors"></jupiter-errors>
-                            </div>
-
+                            <jupiter-errors :errors.sync="errors"></jupiter-errors>
                             <div class="col-xs-6 col-sm-4" v-for="role in roles">
                                 <div class="checkbox">
                                     <label>
