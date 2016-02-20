@@ -20,47 +20,47 @@ class RoleAndPermissionTableSeeder extends Seeder
     public function run()
     {
         /**
-        |
-        | Permissions Role.
-        |
-        | This Role can only managed by the Super Admin.
-        | Can manage and handle the Permissions.
-        |
+         * |
+         * | Permissions Role.
+         * |
+         * | This Role can only managed by the Super Admin.
+         * | Can manage and handle the Permissions.
+         * |
          */
         $superAdminRole = Role::create([
-            'name'      => 'super_admin',
-            'label'     => 'Super Administrator',
-            'visible'     => false,
+            'name' => 'super_admin',
+            'label' => 'Super Administrator',
+            'visible' => false,
         ]);
 
         /**
-        |
-        | The Manage Roles Role.
-        |
-        | Can manage and handle the Roles.
-        |
+         * |
+         * | The Manage Roles Role.
+         * |
+         * | Can manage and handle the Roles.
+         * |
          */
         $manageRoles = Role::create([
-            'name'      => 'manage_roles',
-            'label'     => 'Manage Roles',
+            'name' => 'manage_roles',
+            'label' => 'Manage Roles',
         ]);
-
         /**
-        |
-        | The Manage Users Role.
-        |
-        | Can manage and handle the Users.
-        |
+         * |
+         * | The Manage Users Role.
+         * |
+         * | Can manage and handle the Users.
+         * |
          */
+
         $manageUsers = Role::create([
-            'name'      => 'manage_users',
-            'label'     => 'Manage Users',
+            'name' => 'manage_users',
+            'label' => 'Manage Users',
         ]);
 
         /**
-        |
-        | Permission to be assigned to the Manage Role Role.
-        |
+         * |
+         * | Permission to be assigned to the Manage Role Role.
+         * |
          */
         $readRole = Permission::create([
             'name' => 'read_roles',
@@ -80,35 +80,35 @@ class RoleAndPermissionTableSeeder extends Seeder
         ]);
 
         /**
-        |
-        | Permission to be assigned to the Manager Permissions Role.
-        |
+         * |
+         * | Permission to be assigned to the Manager Permissions Role.
+         * |
          */
         $readPermission = Permission::create([
             'name' => 'read_permissions',
             'label' => 'Read permissions',
-            'visible'     => false,
+            'visible' => false,
         ]);
         $createPermission = Permission::create([
             'name' => 'create_permissions',
             'label' => 'Create permissions',
-            'visible'     => false,
+            'visible' => false,
         ]);
         $updatePermission = Permission::create([
             'name' => 'update_permissions',
             'label' => 'Update permissions',
-            'visible'     => false,
+            'visible' => false,
         ]);
         $deletePermission = Permission::create([
             'name' => 'delete_permissions',
             'label' => 'Delete permissions',
-            'visible'     => false,
+            'visible' => false,
         ]);
 
         /**
-        |
-        | Permission to be assigned to the Manage Users Role.
-        |
+         * |
+         * | Permission to be assigned to the Manage Users Role.
+         * |
          */
         $readUsers = Permission::create([
             'name' => 'read_users',
@@ -128,11 +128,10 @@ class RoleAndPermissionTableSeeder extends Seeder
         ]);
 
         /**
-        |
-        | Give Permission to Super Admin Role
-        |
+         * |
+         * | Give Permission to Super Admin Role
+         * |
          */
-
         $superAdminRole->givePermissionTo($readPermission);
         $superAdminRole->givePermissionTo($createPermission);
         $superAdminRole->givePermissionTo($updatePermission);
@@ -146,9 +145,9 @@ class RoleAndPermissionTableSeeder extends Seeder
         $superAdminRole->givePermissionTo($updateUsers);
         $superAdminRole->givePermissionTo($deleteUsers);
         /**
-        |
-        | Give Permissions to Roles
-        |
+         * |
+         * | Give Permissions to Roles
+         * |
          */
         $manageRoles->givePermissionTo($readRole);
         $manageRoles->givePermissionTo($createRole);
@@ -160,10 +159,10 @@ class RoleAndPermissionTableSeeder extends Seeder
         $manageUsers->givePermissionTo($deleteUsers);
 
         /**
-        |
-        | Super Admin, is the User with the ID 1
-        | Assign Roles to User.
-        |
+         * |
+         * | Super Admin, is the User with the ID 1
+         * | Assign Roles to User.
+         * |
          */
         $userSuperAdmin = User::find(1);
         $userSuperAdmin->assignRole($superAdminRole);

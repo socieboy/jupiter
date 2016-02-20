@@ -28,20 +28,20 @@
 
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li>
+            <li class="@if(Request::is('admin')) active @endif">
                 <a href="/admin"><i class="fa fa-home"></i> <span>Home</span></a>
             </li>
 
             @can('read_users')
-                <li>
-                    <a href="/admin/user"><i class="fa fa-users"></i> <span>Users</span></a>
-                </li>
+            <li class="@if(Request::is('admin/user')) active @endif">
+                <a href="/admin/user"><i class="fa fa-users"></i> <span>Users</span></a>
+            </li>
             @endcan
 
             @can('read_roles')
-                <li>
-                    <a href="/admin/role"><i class="fa fa-cubes"></i> <span>Roles</span></a>
-                </li>
+            <li class="@if(Request::is('admin/role')) active @endif">
+                <a href="/admin/role"><i class="fa fa-cubes"></i> <span>Roles</span></a>
+            </li>
             @endcan
 
             <li><a href="{{ url('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
