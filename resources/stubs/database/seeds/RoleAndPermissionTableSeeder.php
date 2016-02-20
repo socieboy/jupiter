@@ -23,9 +23,9 @@ class RoleAndPermissionTableSeeder extends Seeder
         | The Super Admin Role.
          */
         $superAdminRole = Role::create([
-            'name'      => 'super_admin',
-            'label'     => 'Super Administrator',
-            'visible'     => false,
+            'name' => 'super_admin',
+            'label' => 'Super Administrator',
+            'visible' => false,
         ]);
 
         /**
@@ -42,17 +42,17 @@ class RoleAndPermissionTableSeeder extends Seeder
         | Can manage and handle the Roles.
          */
         $manageRoles = Role::create([
-            'name'      => 'manage_roles',
-            'label'     => 'Manage Roles',
+            'name' => 'manage_roles',
+            'label' => 'Manage Roles',
         ]);
-
         /**
         | The Manage Users Role.
         | Can manage and handle the Users.
          */
+
         $manageUsers = Role::create([
-            'name'      => 'manage_users',
-            'label'     => 'Manage Users',
+            'name' => 'manage_users',
+            'label' => 'Manage Users',
         ]);
 
         /**
@@ -89,22 +89,22 @@ class RoleAndPermissionTableSeeder extends Seeder
         $readPermission = Permission::create([
             'name' => 'read_permissions',
             'label' => 'Read permissions',
-            'visible'     => false,
+            'visible' => false,
         ]);
         $createPermission = Permission::create([
             'name' => 'create_permissions',
             'label' => 'Create permissions',
-            'visible'     => false,
+            'visible' => false,
         ]);
         $updatePermission = Permission::create([
             'name' => 'update_permissions',
             'label' => 'Update permissions',
-            'visible'     => false,
+            'visible' => false,
         ]);
         $deletePermission = Permission::create([
             'name' => 'delete_permissions',
             'label' => 'Delete permissions',
-            'visible'     => false,
+            'visible' => false,
         ]);
 
         /**
