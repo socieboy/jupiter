@@ -56,12 +56,22 @@ class RoleAndPermissionTableSeeder extends Seeder
         ]);
 
         /**
+        | The Manage Files Role.
+        | Can upload and manage files.
+         */
+        $fileManager = Role::create([
+            'name' => 'file-manager',
+            'label' => 'File Manager'
+        ]);
+
+        /**
         | Permission to be assigned to the Manage Role Role.
          */
         $canAccessDashboardPermission = Permission::create([
             'name' => 'dashboard',
             'label' => 'Dashboard'
         ]);
+
 
         /**
         | Permission to be assigned to the Manage Role Role.
@@ -127,6 +137,26 @@ class RoleAndPermissionTableSeeder extends Seeder
             'label' => 'Delete users',
         ]);
 
+        /**
+        | Permission to be assigned to the Manage Files Role.
+         */
+        $readFile = Permission::create([
+            'name' => 'read_files',
+            'label' => 'Read files'
+        ]);
+        $uploadFile = Permission::create([
+            'name' => 'upload_files',
+            'label' => 'Upload files'
+        ]);
+        $updateFile = Permission::create([
+            'name' => 'update_files',
+            'label' => 'Update files'
+        ]);
+        $deleteFile = Permission::create([
+            'name' => 'delete_files',
+            'label' => 'Delete files'
+        ]);
+
 
         /**
         | Give Permission to Super Admin Role
@@ -144,18 +174,36 @@ class RoleAndPermissionTableSeeder extends Seeder
         $superAdminRole->givePermissionTo($createUsers);
         $superAdminRole->givePermissionTo($updateUsers);
         $superAdminRole->givePermissionTo($deleteUsers);
-        /**
-        | Give Permissions to Roles
-         */
+        $superAdminRole->givePermissionTo($readFile);
+        $superAdminRole->givePermissionTo($uploadFile);
+        $superAdminRole->givePermissionTo($updateFile);
+        $superAdminRole->givePermissionTo($deleteFile);
+
+
+        // Give Permissions to Roles
+        // Dashboard
         $dashboardRole->givePermissionTo($canAccessDashboardPermission);
+
+        // Give Permissions to Roles
+        // Roles
         $manageRoles->givePermissionTo($readRole);
         $manageRoles->givePermissionTo($createRole);
         $manageRoles->givePermissionTo($updateRole);
         $manageRoles->givePermissionTo($deleteRole);
+
+        // Give Permissions to Roles
+        // Users
         $manageUsers->givePermissionTo($readUsers);
         $manageUsers->givePermissionTo($createUsers);
         $manageUsers->givePermissionTo($updateUsers);
         $manageUsers->givePermissionTo($deleteUsers);
+
+        // Give Permissions to Roles
+        // Files
+        $fileManager->givePermissionTo($readFile);
+        $fileManager->givePermissionTo($uploadFile);
+        $fileManager->givePermissionTo($updateFile);
+        $fileManager->givePermissionTo($deleteFile);
 
         /**
         | Super Admin, is the User with the ID 1
@@ -167,6 +215,7 @@ class RoleAndPermissionTableSeeder extends Seeder
         $userAdmin = User::find(2);
         $userAdmin->assignRole($manageRoles);
         $userAdmin->assignRole($manageUsers);
+        $userAdmin->assignRole($fileManager);
         $userAdmin->assignRole($dashboardRole);
     }
 }

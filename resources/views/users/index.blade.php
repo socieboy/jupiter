@@ -16,7 +16,7 @@
                     @can('create_users')
                         @include('jupiter::users.create')
                     @endcan
-                    <input type="text" v-model="sortKey" placeholder="Filter Users" class="form-control form-control-search">
+                    <input type="text" v-model="sortKey" placeholder="Search" class="form-control form-control-search">
                 </h3>
             </div>
             {{--Table Users--}}

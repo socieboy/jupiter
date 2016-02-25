@@ -10,12 +10,12 @@
 <jupiter-create-user inline-template>
     <form action="{{ url('/api/user') }}" method="POST" enctype="multipart/form-data" v-on:submit.prevent="createUser">
         {{ csrf_field() }}
-        <div class="modal fade jupiter-create-user-modal" tabindex="-1" role="dialog" aria-labelledby="createUserModal">
+        <div class="modal fade jupiter-create-user-modal" tabindex="-1" role="dialog" aria-labelledby="createUserLabelModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4>
+                        <h4 class="modal-title" id="createUserLabelModal">
                             <i class="fa fa-user-plus"></i> Create User
                         </h4>
                     </div>

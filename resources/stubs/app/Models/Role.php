@@ -7,8 +7,6 @@ use Socieboy\Jupiter\Contracts\ScopeAdminRoles;
 
 class Role extends Model
 {
-
-
     /**
      * Fillable fields.
      * @var array

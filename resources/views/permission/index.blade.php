@@ -10,13 +10,13 @@
 
     <form method="POST" action="/api/role/@{{ role.id }}/permissions" v-ajax onSuccess="updatedPermissionsSuccess" onError="updatedPermissionsFail">
         {{ csrf_field() }}
-        <div class="modal fade jupiter-role-permissions-modal-@{{ role.id }}" tabindex="-1" role="dialog" aria-labelledby="rolePermissionsModal@{{ role.id }}">
+        <div class="modal fade jupiter-role-permissions-modal-@{{ role.id }}" tabindex="-1" role="dialog" aria-labelledby="rolePermissionsLabelModal@{{ role.id }}">
             <div class="modal-dialog">
                 <div class="modal-content">
 
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4>
+                        <h4 class="modal-title" id="rolePermissionsLabelModal@{{ role.id }}">
                             <i class="fa fa-gears"></i> @{{ role.label }}
                         </h4>
                     </div>

@@ -13,3 +13,6 @@ require('./../components/jupiter-table-roles')
 require('./../components/jupiter-create-role')
 require('./../components/jupiter-update-role')
 require('./../components/jupiter-update-role-permissions')
+
+// File Manager
+require('./../components/jupiter-file-manager')

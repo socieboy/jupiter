@@ -12,13 +12,13 @@
 <jupiter-create-role inline-template>
     <form method="POST" action="{{ url('/api/role') }}" v-ajax onSuccess="createRoleSuccess" onError="createRoleFail">
         {{ csrf_field() }}
-        <div class="modal fade create-role-modal" tabindex="-1" role="dialog" aria-labelledby="createRoleModal">
+        <div class="modal fade create-role-modal" tabindex="-1" role="dialog" aria-labelledby="createRoleLabelModal">
             <div class="modal-dialog">
                 <div class="modal-content">
 
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4>
+                        <h4 class="modal-title" id="createRoleLabelModal">
                             <i class="fa fa-lock"></i>
                             Create a new role
                         </h4>

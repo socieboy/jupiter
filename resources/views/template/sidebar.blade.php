@@ -24,7 +24,7 @@
                 <a href="{{ url('/admin') }}"><i class="fa fa-home"></i> <span>Home</span></a>
             </li>
 
-            @can('read_users')
+            @can('read_files')
                 <li class="@if(Request::is('admin/file-manager')) active @endif">
                     <a href="{{ url('/admin/file-manager') }}"><i class="fa fa-cloud"></i> <span>File Manager</span></a>
                 </li>
