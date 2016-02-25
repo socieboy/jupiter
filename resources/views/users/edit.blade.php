@@ -8,7 +8,7 @@
 </a>
 
 <jupiter-update-user :user="user" inline-template>
-    <form action="/api/user" method="POST" enctype="multipart/form-data" v-on:submit.prevent="updateUser">
+    <form action="{{ url('/api/user') }}" method="POST" enctype="multipart/form-data" v-on:submit.prevent="updateUser">
         {{ csrf_field() }}
         <input type="hidden" name="_method" value="PUT">
         <div class="modal fade jupiter-update-user-modal-@{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="updateUserModal">

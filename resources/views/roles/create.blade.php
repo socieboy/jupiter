@@ -10,7 +10,7 @@
 </button>
 
 <jupiter-create-role inline-template>
-    <form method="POST" action="/api/role" v-ajax onSuccess="createRoleSuccess" onError="createRoleFail">
+    <form method="POST" action="{{ url('/api/role') }}" v-ajax onSuccess="createRoleSuccess" onError="createRoleFail">
         {{ csrf_field() }}
         <div class="modal fade create-role-modal" tabindex="-1" role="dialog" aria-labelledby="createRoleModal">
             <div class="modal-dialog">

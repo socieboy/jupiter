@@ -8,7 +8,7 @@
 </a>
 
 <jupiter-create-user inline-template>
-    <form action="/api/user" method="POST" enctype="multipart/form-data" v-on:submit.prevent="createUser">
+    <form action="{{ url('/api/user') }}" method="POST" enctype="multipart/form-data" v-on:submit.prevent="createUser">
         {{ csrf_field() }}
         <div class="modal fade jupiter-create-user-modal" tabindex="-1" role="dialog" aria-labelledby="createUserModal">
             <div class="modal-dialog">

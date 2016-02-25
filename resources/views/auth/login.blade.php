@@ -24,7 +24,7 @@
 
                 @include('jupiter::partials.errors')
 
-                <form action="/login" method="POST">
+                <form action="{{ url('/login') }}" method="POST">
 
                     {{ csrf_field() }}
 
