@@ -25,8 +25,8 @@
             </li>
 
             @can('read_files')
-                <li class="@if(Request::is('admin/file-manager')) active @endif">
-                    <a href="{{ url('/admin/file-manager') }}"><i class="fa fa-cloud"></i> <span>File Manager</span></a>
+                <li class="@if(Request::is('admin/file-browser')) active @endif">
+                    <a href="{{ url('/admin/file-browser') }}"><i class="fa fa-cloud"></i> <span>File Browser</span></a>
                 </li>
             @endcan
 

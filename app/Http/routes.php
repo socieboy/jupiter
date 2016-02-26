@@ -4,7 +4,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::resource('', 'DashboardController');
     Route::resource('user', 'UsersController');
     Route::resource('role', 'RolesController');
-    Route::resource('file-manager', 'FileManagerController');
+    Route::resource('file-browser', 'FileBrowserController');
 });
 Route::group(['middleware' => ['auth'], 'prefix' => 'api',], function () {
     Route::resource('user', 'API\UsersController');

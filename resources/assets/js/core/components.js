@@ -15,4 +15,4 @@ require('./../components/jupiter-update-role')
 require('./../components/jupiter-update-role-permissions')
 
 // File Manager
-require('./../components/jupiter-file-manager')
+require('./../components/jupiter-file-browser')

@@ -3,18 +3,18 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1><i class="fa fa-cloud"></i> File Manager</h1>
+            <h1><i class="fa fa-cloud"></i> File Browser</h1>
         </div>
     </div>
 
-    <jupiter-file-manager inline-template>
+    <jupiter-file-browser inline-template>
         {{--Panel--}}
-        <div class="panel panel-default">
+        <div class="panel panel-default" id="panel-files">
             {{--Panel Heading--}}
             <div class="panel-heading">
                 <h3 class="panel-title">
                     @can('upload_files')
-                        @include('jupiter::file-manager.upload')
+                        @include('jupiter::file-browser.upload')
                     @endcan
                     <input type="text" v-model="sortKey" placeholder="Search" class="form-control form-control-search">
                 </h3>
@@ -23,7 +23,7 @@
                 Files
             </div>
         </div>
-    </jupiter-file-manager>
+    </jupiter-file-browser>
 
 
 @stop

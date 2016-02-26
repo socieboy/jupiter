@@ -2,12 +2,12 @@
 
 namespace Socieboy\Jupiter\Http\Controllers;
 
-class FileManagerController extends JupiterController
+class FileBrowserController extends JupiterController
 {
     public function index()
     {
         $this->authorize('read_files');
-        return view('jupiter::file-manager.index');
+        return view('jupiter::file-browser.index');
     }
 
 

@@ -56,12 +56,12 @@ class RoleAndPermissionTableSeeder extends Seeder
         ]);
 
         /**
-        | The Manage Files Role.
+        | The File Browser Role.
         | Can upload and manage files.
          */
-        $fileManager = Role::create([
-            'name' => 'file-manager',
-            'label' => 'File Manager'
+        $fileBrowser = Role::create([
+            'name' => 'file-browser',
+            'label' => 'File Browser'
         ]);
 
         /**
@@ -200,10 +200,10 @@ class RoleAndPermissionTableSeeder extends Seeder
 
         // Give Permissions to Roles
         // Files
-        $fileManager->givePermissionTo($readFile);
-        $fileManager->givePermissionTo($uploadFile);
-        $fileManager->givePermissionTo($updateFile);
-        $fileManager->givePermissionTo($deleteFile);
+        $fileBrowser->givePermissionTo($readFile);
+        $fileBrowser->givePermissionTo($uploadFile);
+        $fileBrowser->givePermissionTo($updateFile);
+        $fileBrowser->givePermissionTo($deleteFile);
 
         /**
         | Super Admin, is the User with the ID 1
@@ -215,7 +215,7 @@ class RoleAndPermissionTableSeeder extends Seeder
         $userAdmin = User::find(2);
         $userAdmin->assignRole($manageRoles);
         $userAdmin->assignRole($manageUsers);
-        $userAdmin->assignRole($fileManager);
+        $userAdmin->assignRole($fileBrowser);
         $userAdmin->assignRole($dashboardRole);
     }
 }
