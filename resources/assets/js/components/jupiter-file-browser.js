@@ -4,5 +4,4 @@ Vue.component('jupiter-file-browser', {
         $('#panel-files').height($(document).height() - 130)
     },
 
-
 })
