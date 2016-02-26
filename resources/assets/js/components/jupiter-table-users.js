@@ -30,7 +30,7 @@ Vue.component('jupiter-table-users', {
             window.location.href = "/admin/user";
         },
         deleteUserFail: function(response){
-            alertify.error('Woops! Something went wrong!')
+            this.errors = response.data
         }
     }
 

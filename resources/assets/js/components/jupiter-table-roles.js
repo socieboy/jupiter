@@ -30,7 +30,7 @@ Vue.component('jupiter-table-roles', {
             window.location.href = "/admin/role";
         },
         deleteRoleFail: function(response){
-            alertify.error('Woops! Something went wrong!')
+            this.errors = response.data
         }
     }
 
