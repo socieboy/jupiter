@@ -1,30 +1,17 @@
-@extends('jupiter::template.master')
-@section('content')
 
-    <div class="row">
-        <div class="col-md-12">
-            <h1><i class="fa fa-cloud"></i> File Browser</h1>
+<div class="modal fade jupiter-file-browser-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="createUserLabelModal">
+                    <i class="fa fa-cloud"></i> File Browser
+                </h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+            </div>
         </div>
     </div>
-
-    <jupiter-file-browser inline-template>
-        {{--Panel--}}
-        <div class="panel panel-default file-browser">
-            {{--Panel Heading--}}
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    @can('upload_files')
-                        @include('jupiter::file-browser.upload')
-                    @endcan
-                    <input type="text" v-model="sortKey" placeholder="Search" class="form-control form-control-search">
-                </h3>
-            </div>
-            <div class="panel-body no-padding">
-                @include('jupiter::file-browser.directories')
-                @include('jupiter::file-browser.files')
-            </div>
-        </div>
-    </jupiter-file-browser>
-
-
-@stop
+</div>

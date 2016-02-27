@@ -25,8 +25,10 @@
             </li>
 
             @can('read_files')
-                <li class="@if(Request::is('admin/file-browser')) active @endif">
-                    <a href="{{ url('/admin/file-browser') }}"><i class="fa fa-cloud"></i> <span>File Browser</span></a>
+                <li>
+                    <a data-toggle="modal" data-target=".jupiter-file-browser-modal" data-backdrop="static" data-keyboard="false">
+                        <i class="fa fa-cloud"></i> <span>File Browser</span>
+                    </a>
                 </li>
             @endcan
 
@@ -47,3 +49,8 @@
     </section>
 
 </aside>
+
+@can('read_files')
+    @include('jupiter::file-browser.index')
+@endcan
+
