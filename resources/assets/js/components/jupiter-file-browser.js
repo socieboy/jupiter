@@ -6,32 +6,26 @@ Vue.component('jupiter-file-browser', {
         }
     },
     ready: function () {
-        document.getElementById("file-browser-input").onchange = function() {
+        document.getElementById("file-browser-input").onchange = function(event) {
             this.submitted = true;
-            this.submitForm();
+            this.submitForm(event);
         }.bind(this);
     },
 
     methods: {
-        submitForm: function(){
-            this.$http.post('/api/file-browser', this.formData()).then(function(response){
+        submitForm: function(event){
+            var files = event.target.files;
+            this.$http.post('/api/file-browser', this.formData(files)).then(function(response){
                 console.log(response.data)
+                this.submitted = false;
             })
         },
-        formData: function() {
-            var serializedData = $(this.$els.uploadFileForm).serializeArray();
-            var objectData = {};
-            $.each(serializedData, function() {
-                if (objectData[this.name] !== undefined) {
-                    if (!objectData[this.name].push) {
-                        objectData[this.name] = [objectData[this.name]];
-                    }
-                    objectData[this.name].push(this.value || '');
-                } else {
-                    objectData[this.name] = this.value || '';
-                }
+        formData: function(files) {
+            var data = new FormData();
+            $.each(files, function(key, value){
+                data.append('files[' + key + ']', value);
             });
-            return objectData;
+            return data;
         },
     }
 

@@ -1,4 +1,4 @@
-<form action="" v-el="uploadFileForm">
+<form action="" id="uploadFileForm">
     {!! csrf_field() !!}
     <input type="file"
            name="file"

@@ -14,9 +14,10 @@ class FileBrowserController extends JupiterController
         dd($fileSystem->collection);
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        dd(2);
+        $this->authorize('upload_files');
+        dd($request->all());
     }
 
 

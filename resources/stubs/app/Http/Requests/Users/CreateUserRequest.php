@@ -26,8 +26,8 @@ class CreateUserRequest extends Request
             'name'                  => 'required',
             'email'                 => 'required|email|max:255|unique:users',
             'generate_password'     => 'sometimes',
-            'password'              => 'required_unless:generate_password,true|min:6',
-            'password_confirmation' => 'required_unless:generate_password,true|confirmed|min:6',
+            'password'              => 'required_unless:generate_password,true|confirmed|min:6',
+            'password_confirmation' => 'required_unless:generate_password,true|min:6',
             'avatar'                => 'sometimes|image',
         ];
     }

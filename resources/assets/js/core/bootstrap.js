@@ -10,6 +10,8 @@ if (window._ === undefined) {
 
 require('vue-resource');
 
+Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#_token').getAttribute('value');
+
 Vue.config.debug = true;
 
 // Load jQuery and Bootstrap jQuery, used for front-end interaction.
